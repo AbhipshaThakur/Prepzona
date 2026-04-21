@@ -1,0 +1,99 @@
+@import "@fontsource-variable/geist";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --app-text: #111827;
+    --app-text-soft: #4b5563;
+    --app-text-muted: #6b7280;
+    color: var(--app-text);
+  }
+  body {
+    color: var(--app-text);
+  }
+  .dark {
+    --app-text: #ffffff;
+    --app-text-soft: rgba(255, 255, 255, 0.8);
+    --app-text-muted: rgba(255, 255, 255, 0.6);
+    color: var(--app-text);
+  }
+  .dark body {
+    color: var(--app-text);
+  }
+  h1, h2, h3, h4, h5, h6, p, span, a, li, td, th, label, button {
+
+    color: inherit;
+  }
+  input, textarea, select {
+    color: var(--app-text);
+    background-color: transparent;
+  }
+
+  .dark input, .dark textarea, .dark select {
+    color: var(--app-text);
+  }
+  ::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+  }
+  .dark ::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .text-theme-primary {
+    color: var(--app-text);
+  }
+
+  .text-theme-soft {
+    color: var(--app-text-soft);
+  }
+  .text-theme-muted {
+    color: var(--app-text-muted);
+  }
+
+  .animate-marquee-ui {
+    animation: marquee-ui var(--duration) infinite linear;
+  }
+
+  .animate-marquee-vertical-ui {
+    animation: marquee-vertical-ui var(--duration) linear infinite;
+  }
+}
+
+@keyframes marquee-ui {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical-ui {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+@layer base {
+  :is(h1, h2, h3, h4, h5, h6, p, span, a, li, label, small, strong)[class*="text-indigo"],
+  :is(h1, h2, h3, h4, h5, h6, p, span, a, li, label, small, strong)[class*="text-blue"],
+  :is(h1, h2, h3, h4, h5, h6, p, span, a, li, label, small, strong)[class*="text-cyan"] {
+    color: var(--app-text) !important;
+  }
+  :is(a, span, p, h1, h2, h3, h4, h5, h6)[class*="hover:text-indigo"]:hover,
+  :is(a, span, p, h1, h2, h3, h4, h5, h6)[class*="hover:text-blue"]:hover,
+  :is(a, span, p, h1, h2, h3, h4, h5, h6)[class*="hover:text-cyan"]:hover {
+    color: var(--app-text) !important;
+  }
+}
+
+
