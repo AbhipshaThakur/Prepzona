@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+python-dotenv
+edge-tts
+sqlalchemy
+python-jose[cryptography]
+bcrypt
+python-multipart
